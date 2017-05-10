@@ -13,10 +13,29 @@ class Order extends AbstractContext
         'orderStatus' => null,
         'priceCurrency' => null,
         'price' => null,
-        'acceptedOffer' => Offer::class,
+        'acceptedOffer' => [],
         'url' => null,
         'priceSpecification.name' => null,
         'customer' => Person::class,
         'billingAddress' => PostalAddress::class
     ];
+    
+    /**
+     * Set offers attributes.
+     *
+     * @param  mixed $values
+     * @return array
+     */
+    protected function setAcceptedOfferAttribute($values)
+    {
+        if (is_array($values)) {
+            foreach($values as $key => $value) {
+                $values[$key] = $this->mapProperty([
+                    'itemOffered' => '',
+                    'priceSpecification' => '',
+                ], $value);
+            }
+        }
+        return $values;
+    }
 }
