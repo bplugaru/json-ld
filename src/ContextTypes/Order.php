@@ -31,8 +31,8 @@ class Order extends AbstractContext
         if (is_array($values)) {
             foreach($values as $key => $value) {
                 $values[$key] = $this->mapProperty([
-                    'itemOffered' => '',
-                    'priceSpecification' => '',
+                    'itemOffered' =>  Product::class,
+                    'priceSpecification' => PriceSpecification:class,
                 ], $value);
             }
         }
