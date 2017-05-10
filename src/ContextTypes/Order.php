@@ -16,6 +16,7 @@ class Order extends AbstractContext
         'acceptedOffer' => Offer::class,
         'url' => null,
         'priceSpecification.name' => null,
-        'customer' => Person::class
+        'customer' => Person::class,
+        'billingAddress' => PostalAddress::class
     ];
 }
