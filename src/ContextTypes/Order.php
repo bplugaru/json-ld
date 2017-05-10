@@ -32,7 +32,7 @@ class Order extends AbstractContext
             foreach($values as $key => $value) {
                 $values[$key] = $this->mapProperty([
                     'itemOffered' =>  Product::class,
-                    'priceSpecification' => PriceSpecification:class,
+                    'priceSpecification' => PriceSpecification::class,
                 ], $value);
             }
         }
